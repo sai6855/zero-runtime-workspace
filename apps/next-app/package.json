@@ -9,17 +9,31 @@
     "clean": "rimraf .next"
   },
   "dependencies": {
+    "@mui/base": "^5.0.0-beta.25",
+    "@mui/material": "^5.14.19",
+    "@mui/material-nextjs": "https://pkg.csb.dev/mui/material-ui/commit/e2a479f3/@mui/material-nextjs",
+    "@mui/system": "^5.14.19",
+    "@mui/types": "7.2.10",
+    "@mui/utils": "^5.14.19",
+    "@mui/x-data-grid-generator": "latest",
+    "@mui/x-data-grid": "latest",
+    "@mui/x-data-grid-pro": "latest",
+    "@mui/x-data-grid-premium": "latest",
     "@mui/zero-runtime": "workspace:^",
+    "@types/prop-types": "15.7.11",
+    "clsx": "^2.0.0",
+    "next": "14.0.1",
+    "prop-types": "15.8.1",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.1"
+    "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
-    "@mui/material": "^5.14.16",
     "@mui/zero-next-plugin": "workspace:^",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-transition-group": "^4.4.9",
     "eslint": "^8.52.0",
     "typescript": "^5"
   }

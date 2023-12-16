@@ -2,6 +2,12 @@ import * as React from 'react';
 import { styled } from '@mui/zero-runtime';
 import { Button, bounceAnim } from 'local-ui-lib';
 import Slider from './Slider/ZeroSlider';
+import ZeroButton from './Button/ZeroButton';
+import FormControl from './FormControl';
+// import FormLabel from './FormLabel';
+// import InputBase from './InputBase';
+import InputLabel from './InputLabel';
+import Test2 from './Test2/Test2';
 
 const ShowCaseDiv = styled('div')({
   [`.${Button}`]: {
@@ -47,6 +53,16 @@ export function App({ isRed }: AppProps) {
       <Button isRed={count % 2 === 1} onClick={() => setCount(count + 1)}>
         Click Count {count}
       </Button>
+      <Test2>Test</Test2>
+      <ZeroButton>Hey</ZeroButton>
+      {/* <FormControl>
+        <InputLabel htmlFor="component-outlined">Name</InputLabel>
+        <OutlinedInput
+          id="component-outlined"
+          defaultValue="Composed TextField"
+          label="Name"
+        />
+      </FormControl> */}
       <div>
         <div>
           <label>

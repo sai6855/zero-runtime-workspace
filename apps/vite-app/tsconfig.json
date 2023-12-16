@@ -1,5 +1,6 @@
 {
   "extends": "../../tsconfig.json",
+  "include": ["../next-app/src/components/**/*"],
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "react-jsx"

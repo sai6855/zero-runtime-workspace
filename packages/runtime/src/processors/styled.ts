@@ -239,9 +239,13 @@ export class StyledProcessor extends BaseProcessor {
         themeImportIdentifier.name,
       );
     });
-    this.processOverrides(values, variantsAccumulator);
+    this.processOverrides(
+      values,
+      variantsAccumulator,
+      themeImportIdentifier.name,
+    );
     variantsAccumulator.forEach((variant) => {
-      this.processVariant(variant);
+      this.processVariant(variant, themeImportIdentifier.name);
     });
     const artifacts: [Rules, Replacements][] = this.collectedStyles.map(
       ([className, cssText]) => {
@@ -414,7 +418,11 @@ export class StyledProcessor extends BaseProcessor {
   /**
    * Generates css for styleOverride objects in the theme object.
    */
-  processOverrides(values: ValueCache, variantsAccumulator?: VariantData[]) {
+  processOverrides(
+    values: ValueCache,
+    variantsAccumulator?: VariantData[],
+    themeImportIdentifier?: string,
+  ) {
     if (!this.componentMetaArg) {
       return;
     }
@@ -441,6 +449,7 @@ export class StyledProcessor extends BaseProcessor {
             overrideStyle,
             null,
             variantsAccumulator,
+            themeImportIdentifier,
           );
           const className = this.getClassName();
           this.collectedOverrides.push([key, className]);
@@ -465,7 +474,7 @@ export class StyledProcessor extends BaseProcessor {
   /**
    * Generates css for all the variants collected after processing direct css and styleOverride css.
    */
-  processVariant(variant: VariantData) {
+  processVariant(variant: VariantData, themeImportIdentifier?: string) {
     const { displayName } = this.options;
     const className = this.getClassName(displayName ? 'variant' : undefined);
     const styleObjOrFn = variant.style;
@@ -473,6 +482,8 @@ export class StyledProcessor extends BaseProcessor {
     const finalStyle = this.processCss(
       styleObjOrFn,
       originalExpression ?? null,
+      undefined,
+      themeImportIdentifier,
     );
     this.collectedStyles.push([className, finalStyle, null]);
     this.collectedVariants.push({
